@@ -12,9 +12,9 @@ documents_folder = "./documents"
 # Load PandasAI loader, Which is a wrapper over PandasAI library
 PandasAIReader = download_loader("PandasAIReader")
 
-st.title("Welcome to `ChatwithDocs`")
-st.header(
-    "Interact with Documents such as `PDFs/CSV/Docs` using the power of LLMs\nPowered by `LlamaIndex🦙` \nCheckout the [GITHUB Repo Here](https://github.com/anoopshrma/Chat-with-Docs) and Leave a star⭐")
+st.title("Midstack AI Advisor")
+st.header("Interact with regulatory frameworks and energy datasets via our document loader (PDFs/CSV/Docs)")
+
 
 
 def get_csv_result(df, query):
@@ -75,10 +75,11 @@ def query_doc(vector_index, query):
     return response
 
 
-api_key = st.text_input("Enter your OpenAI API key here:", type="password")
-if api_key:
-    os.environ['OPENAI_API_KEY'] = api_key
-    csv_llm = OpenAI(api_token=api_key)
+# Replace 'your_api_key' with your actual API key.
+api_key = 'your_api_key'
+os.environ['OPENAI_API_KEY'] = api_key
+csv_llm = OpenAI(api_token=api_key)
+
 
 tab1, tab2 = st.tabs(["CSV", "PDFs/Docs"])
 
